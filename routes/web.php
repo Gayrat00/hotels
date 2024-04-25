@@ -4,12 +4,15 @@ use App\Http\Controllers\LocationController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\BookingController;
-use App\Http\Controllers\Homecontroller;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
-// Маршруты для модели Hotel
-Route::resource('hotels', HotelController::class);
+Route::get('', [HomeController::class, 'index'])->name('home');
+//Route::get('/hotels', 'HotelController@index');
+//Route::get('/hotels', 'HotelController@index')->name('hotels.index');
+//Route::get('/hotels/{hotel}', 'HotelController@show')->name('hotels.show');
 
+Route::resource('hotels', Hotelcontroller::class);
 // Маршруты для модели Location
 Route::resource('locations', LocationController::class);
 

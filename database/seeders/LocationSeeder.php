@@ -4,7 +4,7 @@ namespace Database\Seeders;
 use App\Models\Location;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-
+use Faker\Factory as FakerFactory;
 class LocationSeeder extends Seeder
 {
     /**
@@ -12,79 +12,34 @@ class LocationSeeder extends Seeder
      */
     public function run(): void
     {
-        // Sample data for the locations table
-        $locations = [
-            [
-                'city' => 'New',
-                'state' => 'New York',
-                'country' => 'USA',
-                'postal_code' => '10001',
-            ],
-            [
-                'city' => 'Los Angeles',
-                'state' => 'California',
-                'country' => 'USA',
-                'postal_code' => '90001',
-            ],
-            [
-                'city' => 'Chicago',
-                'state' => 'Illinois',
-                'country' => 'USA',
-                'postal_code' => '60601',
-            ],
-            [
-                'city' => 'Toronto',
-                'state' => 'Ontario',
-                'country' => 'Canada',
-                'postal_code' => 'M5H 2N2',
-            ],
-            [
-                'city' => 'London',
-                'state' => 'England',
-                'country' => 'United Kingdom',
-                'postal_code' => 'WC2N 5DU',
-            ],
-            [
-                'city' => 'Sydney',
-                'state' => 'New South Wales',
-                'country' => 'Australia',
-                'postal_code' => '2000',
-            ],
-            [
-                'city' => 'Tokyo',
-                'state' => 'Tokyo',
-                'country' => 'Japan',
-                'postal_code' => '100-0001',
-            ],
-            [
-                'city' => 'Tokyo',
-                'state' => 'Tokyo',
-                'country' => 'Japan',
-                'postal_code' => '100-0001',
-            ],
-            [
-                'city' => 'Paris',
-                'state' => 'Île-de-France',
-                'country' => 'France',
-                'postal_code' => '75001',
-            ],
-            [
-                'city' => 'Berlin',
-                'state' => 'Berlin',
-                'country' => 'Germany',
-                'postal_code' => '10115',
+        {
+            $faker = FakerFactory::create();
 
-            ],
-            // Add more sample data as needed
-        ];
+            $countries = [
+                'United States', 'Canada', 'Mexico', 'France', 'Germany',
+                'Italy', 'Spain', 'United Kingdom', 'Australia', 'Japan',
+            ]; // Adjust as needed
 
-        foreach ($locations as $location) {
-            $obj = new Location();
-            $obj->city = $location['city'];
-            $obj->state = $location['state'];
-            $obj->country = $location['country'];
-            $obj->postal_code = $location['postal_code'];
-            $obj->save();
+            $states = [ // Example US states, modify for other countries
+                'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
+                'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia',
+                'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa',
+                // ... (add remaining states)
+            ];
+
+            for ($i = 0; $i < 100; $i++) { // Seed 100 locations (adjust as needed)
+                $city = $faker->city;
+                $state = $faker->optional()->state . ' ' . $faker->optional()->countryCode; // Combine state and country code if no state provided
+                $country = $faker->randomElement($countries);
+                $postalCode = $faker->optional()->postcode; // Postal code may be null
+
+                DB::table('locations')->insert([
+                    'city' => $city,
+                    'state' => $state,
+                    'country' => $country,
+                    'postal_code' => $postalCode,
+                ]);
+            }
         }
     }
 }

@@ -17,7 +17,7 @@ class RoomFactory extends Factory
         $hotel = Hotel::inRandomOrder()->first();
         return [
             'hotel_id' => $hotel->id,
-            'room_type' => $this->faker->word,
+            'room_type' => fake()->word,
             'price' => fake()->numberBetween(100, 500) * 10,
             'availability' => fake()->boolean(60),
         ];

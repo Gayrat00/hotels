@@ -21,7 +21,7 @@ class ReviewFactory extends Factory
         return [
             'hotel_id' => $hotel->id,
             'user_id' => $user->id,
-            'rating' => $this->faker->numberBetween(1, 5),
+            'rating' => fake()->numberBetween(1, 5),
             'comment' => $this->faker->sentence,
         ];
     }

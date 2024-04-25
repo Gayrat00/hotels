@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 use App\Models\Location;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class LocationSeeder extends Seeder
 {
@@ -12,6 +12,74 @@ class LocationSeeder extends Seeder
      */
     public function run(): void
     {
-        Location::factory()->count(10)->create();
+        // Sample data for the locations table
+        $locations = [
+            [
+                'city' => 'New York',
+                'state' => 'New York',
+                'country' => 'USA',
+                'postal_code' => '10001',
+            ],
+            [
+                'city' => 'Los Angeles',
+                'state' => 'California',
+                'country' => 'USA',
+                'postal_code' => '90001',
+            ],
+            [
+                'city' => 'Chicago',
+                'state' => 'Illinois',
+                'country' => 'USA',
+                'postal_code' => '60601',
+            ],
+            [
+                'city' => 'Toronto',
+                'state' => 'Ontario',
+                'country' => 'Canada',
+                'postal_code' => 'M5H 2N2',
+            ],
+            [
+                'city' => 'London',
+                'state' => 'England',
+                'country' => 'United Kingdom',
+                'postal_code' => 'WC2N 5DU',
+            ],
+            [
+                'city' => 'Sydney',
+                'state' => 'New South Wales',
+                'country' => 'Australia',
+                'postal_code' => '2000',
+            ],
+            [
+                'city' => 'Tokyo',
+                'state' => 'Tokyo',
+                'country' => 'Japan',
+                'postal_code' => '100-0001',
+            ],
+            [
+                'city' => 'Tokyo',
+                'state' => 'Tokyo',
+                'country' => 'Japan',
+                'postal_code' => '100-0001',
+            ],
+            [
+                'city' => 'Paris',
+                'state' => 'Île-de-France',
+                'country' => 'France',
+                'postal_code' => '75001',
+            ],
+            [
+                'city' => 'Berlin',
+                'state' => 'Berlin',
+                'country' => 'Germany',
+                'postal_code' => '10115',
+
+            ],
+            // Add more sample data as needed
+        ];
+
+        foreach ($locations as $location) {
+            Location::create($location);
+        }
     }
 }

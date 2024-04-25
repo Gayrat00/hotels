@@ -16,11 +16,15 @@ class BookingFactory extends Factory
 
     public function definition(): array
     {
+        $user = User::inRandomOrder()->first();
+        $room = Room::inRandomOrder()->first();
         $start_date = fake()->dateTimeBetween('-6 months', 'now');
         $end_date = fake()->dateTimeBetween('-6 months', 'now');
         return [
-            'user_id' => User::factory(),
-            'room_id' => Room::factory(),
+//            'user_id' => User::factory(),
+            'user_id' => $user->id,
+//            'room_id' => Room::factory(),
+            'room_id' => $room->id,
             'start_date' => $start_date,
             'end_date' => $end_date,
             'total_price' => $this->faker->randomFloat(2, 100, 1000),

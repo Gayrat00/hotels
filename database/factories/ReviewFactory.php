@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Factories;
+use App\Models\Room;
 use App\Models\User;
 use App\Models\Hotel;
 use App\Models\Review;
@@ -15,9 +16,11 @@ class ReviewFactory extends Factory
 
     public function definition(): array
     {
+        $user = User::inRandomOrder()->first();
+        $hotel = Hotel::inRandomOrder()->first();
         return [
-            'hotel_id' => Hotel::factory(),
-            'user_id' => User::factory(),
+            'hotel_id' => $hotel->id,
+            'user_id' => $user->id,
             'rating' => $this->faker->numberBetween(1, 5),
             'comment' => $this->faker->sentence,
         ];

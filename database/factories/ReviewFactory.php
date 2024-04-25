@@ -22,7 +22,7 @@ class ReviewFactory extends Factory
             'hotel_id' => $hotel->id,
             'user_id' => $user->id,
             'rating' => fake()->numberBetween(1, 5),
-            'comment' => $this->faker->sentence,
+            'comment' => fake()->sentence,
         ];
     }
 }

@@ -15,7 +15,7 @@ class LocationSeeder extends Seeder
         // Sample data for the locations table
         $locations = [
             [
-                'city' => 'New York',
+                'city' => 'New',
                 'state' => 'New York',
                 'country' => 'USA',
                 'postal_code' => '10001',
@@ -79,7 +79,12 @@ class LocationSeeder extends Seeder
         ];
 
         foreach ($locations as $location) {
-            Location::create($location);
+            $obj = new Location();
+            $obj->city = $location['city'];
+            $obj->state = $location['state'];
+            $obj->country = $location['country'];
+            $obj->postal_code = $location['postal_code'];
+            $obj->save();
         }
     }
 }

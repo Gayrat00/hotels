@@ -8,9 +8,10 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('', [HomeController::class, 'index'])->name('home');
-//Route::get('/hotels', 'HotelController@index');
-//Route::get('/hotels', 'HotelController@index')->name('hotels.index');
-//Route::get('/hotels/{hotel}', 'HotelController@show')->name('hotels.show');
+
+Route::get('/', function () {
+    return redirect()->route('hotels.index');
+})->name('home');
 
 Route::resource('hotels', Hotelcontroller::class);
 // Маршруты для модели Location

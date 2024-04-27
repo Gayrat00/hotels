@@ -2,7 +2,6 @@
 <h1>{{ $hotel->name }}</h1>
 <div class="hotel-details">
     <p>Adress: {{ $hotel->address }}</p>
-    <p>Location: {{ $hotel->location }}</p>
     <p>Star Rating: {{ $hotel->rating }}</p>
     <p>Description: {{ $hotel->description }}</p>
 

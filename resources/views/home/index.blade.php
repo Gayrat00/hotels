@@ -1,35 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotels</title>
-</head>
-<body>
-<h1>Welcome to Our Hotel Listing!</h1>
-@if (count($hotels) > 0)
-    <table>
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Address</th>
-            <th>Rating</th>
-            <th>Price per Night</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach ($hotels as $hotel)
-            <tr>
-                <td>{{ $hotel->name }}</td>
-                <td>{{ $hotel->address }}</td>
-                <td>{{ $hotel->rating }}</td>
-                <td>${{ number_format($hotel->price_per_night, 2) }}</td>
-            </tr>
-        @endforeach
-        </tbody>
-    </table>
-@else
-    <p>No hotels found.</p>
-@endif
-</body>
-</html>
+@extends('layouts.app')
+@section('title')
+    Home
+@endsection
+@section('content')
+    <div class="container py-4">
+        <div class="mb-5">
+            <div class="h4 text-primary mb-3">
+                Hotels
+            </div>
+            <div class="row g-3">
+                @foreach($hotels as $hotel)
+                    <div class="col">
+                        <div class="border rounded p-2">
+                            <div class="h6 mb-0">
+                                <a href="{{ route('hotels.index', ['hotels' => $hotel->id]) }}"
+                                   class="link-dark text-decoration-none">
+                                    {{ $hotel->name }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+@endsection
+{{--        <div class="mb-5">--}}
+{{--            <div class="h4 text-primary mb-3">--}}
+{{--                LOCATIONS--}}
+{{--            </div>--}}
+{{--            <div class="row g-3">--}}
+{{--                @foreach($locations as $location)--}}
+{{--                    <div class="col">--}}
+{{--                        <div class="border rounded p-2">--}}
+{{--                            <div class="h6 mb-0">--}}
+{{--                                <a href="{{ route('hotels.index', ['location' => $location->id]) }}"--}}
+{{--                                   class="link-dark text-decoration-none">--}}
+{{--                                    {{ $location->city }}--}}
+{{--                                </a>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                @endforeach--}}
+{{--            </div>--}}
+{{--        </div>--}}
+

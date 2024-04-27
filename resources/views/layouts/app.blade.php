@@ -11,8 +11,8 @@
     <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
 </head>
 <body class="bg-light">
-@include('client.app.nav')
-@include('client.app.alert')
+@include('app.nav')
+@include('app.alert')
 @yield('content')
 </body>
 </html>

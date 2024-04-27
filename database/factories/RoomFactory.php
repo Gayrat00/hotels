@@ -14,10 +14,18 @@ class RoomFactory extends Factory
 
     public function definition(): array
     {
+        $roomTypes = [
+            'Standard',
+            'Deluxe',
+            'Family',
+            'King',
+            'Queen',
+            'Double',
+        ];
         $hotel = Hotel::inRandomOrder()->first();
         return [
             'hotel_id' => $hotel->id,
-            'room_type' => fake()->word,
+            'room_type' => fake()->randomElement($roomTypes),
             'price' => fake()->numberBetween(100, 500) * 10,
             'availability' => fake()->boolean(60),
         ];

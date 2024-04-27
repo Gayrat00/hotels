@@ -7,13 +7,16 @@
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('home') }}">Home</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('hotels.index') }}">Hotels</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('hotels.index') }}">Review</a>
+                    <a class="nav-link" href="{{ route('reviews.index') }}">Review</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('hotels.index') }}">Booking</a>
+                    <a class="nav-link" href="{{ route('bookings.index') }}">Booking</a>
                 </li>
             </ul>
         </div>

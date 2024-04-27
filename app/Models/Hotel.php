@@ -40,4 +40,9 @@ class Hotel extends Model
     {
         return $this->hasMany(Review::class);
     }
+
+    public function location()
+    {
+        return $this->belongsTo(Location::class);
+    }
 }

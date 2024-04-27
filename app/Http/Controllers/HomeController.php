@@ -9,7 +9,24 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $hotels =Hotel::all();
-        return view('home.index', compact('hotels'));
+//        $hotels =Hotel::all();
+//        return view('home.index', compact('hotels'));
+//
+//        $locations =Location::all();
+//        return view('home.index', compact('locations'));
+
+        $locations = Location::withCount('hotels')
+            ->orderBy('city')
+            ->orderBy('country')
+            ->orderBy('state')
+            ->get();
+
+        $hotels = Hotel::with('location')
+            ->orderBy('name')
+            ->orderBy('address')
+            ->orderBy('rating')
+            ->get();
+
+        return view('home.index', compact('locations', 'hotels'));
     }
 }

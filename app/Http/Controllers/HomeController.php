@@ -7,15 +7,5 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index()
-    {
-        $locations = Location::withCount('hotels')
-            ->orderBy('city')
-            ->get();
 
-        return view('home.index')
-            ->with([
-                'locations' => $locations,
-            ]);
-    }
 }

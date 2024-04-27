@@ -17,7 +17,13 @@ class Hotel extends Model
         'price_per_night'];
 
     // Отношения
-
+    protected function casts(): array
+    {
+        return [
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+        ];
+    }
     // Отель имеет много комнат
     public function rooms()
     {

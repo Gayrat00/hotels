@@ -17,11 +17,6 @@ return new class extends Migration
             $table->string('state');
             $table->string('country');
             $table->string('postal_code')->nullable();
-            $table->timestamps();
-        });
-
-        Schema::table('hotels', function (Blueprint $table) {
-
         });
     }
 
@@ -30,10 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('hotels', function (Blueprint $table) {
-            $table->dropForeign(['location_id']);
-            $table->dropColumn('location_id');
-        });
         Schema::dropIfExists('locations');
     }
 };

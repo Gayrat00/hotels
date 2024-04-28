@@ -16,17 +16,18 @@
                             <img src="{{ asset('img/hotels/hotel-' . $hotel->id . '.jpg') }}" class="card-img-top img-fluid">
                         </a>
                         <div class="card-body">
-                            <h5 class="card-title">{{ $hotel->name }}</h5>
+                            <a href="{{ route('hotels.show', ['hotel' => $hotel->id]) }}">
+                                <h5 class="card-title">{{ $hotel->name }}</h5>
+                            </a>
+                            <span class="fw-bold">Rating:</span>
+                            @for ($i = 0; $i < 5; $i++)
+                                @if ($i < $hotel->rating)
+                                    <span class="star filled text-warning">&#9733;</span>
+                                @else
+                                    <span class="star ">&#9734;</span>
+                                @endif
+                            @endfor
                         </div>
-                        <span class="fw-bold">Rating:</span>
-                        @for ($i = 0; $i < 5; $i++)
-                            @if ($i < $hotel->rating)
-                                <span class="star filled text-warning">&#9733;</span>
-                            @else
-                                <span class="star ">&#9734;</span>
-                            @endif
-                        @endfor
-                        <br>
                     </div>
                 </div>
             @empty

@@ -16,7 +16,6 @@ class Hotel extends Model
         'description',
         'price_per_night'];
 
-    // Отношения
     protected function casts(): array
     {
         return [
@@ -24,7 +23,6 @@ class Hotel extends Model
             'updated_at' => 'datetime',
         ];
     }
-    // Отель имеет много комнат
     public function rooms()
     {
         return $this->hasMany(Room::class);
@@ -35,7 +33,6 @@ class Hotel extends Model
         return $this->hasMany(Booking::class);
     }
 
-    // Отель имеет много отзывов
     public function reviews()
     {
         return $this->hasMany(Review::class);
@@ -44,5 +41,9 @@ class Hotel extends Model
     public function location()
     {
         return $this->belongsTo(Location::class);
+    }
+    public function contact()
+    {
+        return $this->hasOne(Contact::class);
     }
 }

@@ -16,9 +16,6 @@ class Booking extends Model
         'end_date',
         'total_price'];
 
-    // Отношения
-
-    // Бронирование принадлежит пользователю
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -29,7 +26,6 @@ class Booking extends Model
         return $this->belongsTo(Hotel::class);
     }
 
-    // Бронирование связано с комнатой
     public function room()
     {
         return $this->belongsTo(Room::class);

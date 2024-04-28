@@ -10,9 +10,7 @@ class HomeController extends Controller
     public function index()
     {
         $locations = Location::withCount('hotels')
-            ->orderBy('city')
             ->orderBy('country')
-            ->orderBy('state')
             ->get();
 
         $hotels = Hotel::with('rooms')
@@ -21,11 +19,6 @@ class HomeController extends Controller
             ->orderBy('rating')
             ->get();
 
-//        return view('home.index')
-//            ->with([
-//                'locations' => $locations,
-//                'brands' => $hotels,
-//            ]);
         return view('home.index', compact('locations', 'hotels',));
     }
 }

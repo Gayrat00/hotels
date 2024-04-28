@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('hotel_id')->constrained()->onDelete('cascade');
             $table->string('room_type');
-            $table->decimal('price', 8, 2);
+            $table->double('price')->default(0);
             $table->boolean('availability')->default(true);
             $table->timestamps();
         });

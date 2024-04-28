@@ -10,9 +10,11 @@ class HotelSeeder extends Seeder
     public function run(): void
     {
         $hotelsData = [
-            [   'name' => 'Seaside Inn',
+            [
+                'name' => 'Seaside Inn',
                 'address' => '456 Ocean Drive, Miami Beach, FL 33139',],
-            [   'name' => 'Hotel Central',
+            [
+                'name' => 'Hotel Central',
                 'address' => '123 Main Street, New York, NY 10001',],
             [
                 'name' => 'Mountain Retreat',
@@ -113,26 +115,3 @@ class HotelSeeder extends Seeder
         }
     }
 }
-
-
-//$fake = FakerFactory::create();
-//
-//$locations = DB::table('locations')->pluck('id');
-//
-//for ($i = 0; $i < 50; $i++) {
-//    $name = $fake->unique()->company . ' Hotel';
-//    $address = $fake->streetAddress . ', ' . $fake->city . ', ' . $fake->state . ' ' . $fake->postcode();
-//    $locationId = $fake->randomElement($locations->toArray());
-//    $rating = number_format($fake->randomFloat(1, 1, 5), 1);
-//    $description = $fake->optional()->paragraph;
-//    $pricePerNight = number_format($fake->randomFloat(2, 50, 500), 2);
-//
-//    DB::table('hotels')->insert([
-//        'name' => $name,
-//        'address' => $address,
-//        'location_id' => $locationId,
-//        'rating' => $rating,
-//        'description' => $description,
-//        'price_per_night' => $pricePerNight,
-//    ]);
-//}

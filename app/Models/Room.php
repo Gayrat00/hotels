@@ -15,9 +15,6 @@ class Room extends Model
         'price',
         'availability'];
 
-    // Отношения
-
-    // Комната принадлежит отелю
     public function hotel()
     {
         return $this->belongsTo(Hotel::class, 'hotel_id');

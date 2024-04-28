@@ -2,16 +2,10 @@
 
 namespace Database\Factories;
 use App\Models\Hotel;
-use App\Models\Room;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Room>
- */
 class RoomFactory extends Factory
 {
-    protected $model = Room::class;
-
     public function definition(): array
     {
         $roomTypes = [
@@ -19,7 +13,7 @@ class RoomFactory extends Factory
             'Deluxe',
             'Family',
             'King',
-            'Queen',
+            'Single',
             'Double',
         ];
         $hotel = Hotel::inRandomOrder()->first();
@@ -27,7 +21,7 @@ class RoomFactory extends Factory
             'hotel_id' => $hotel->id,
             'room_type' => fake()->randomElement($roomTypes),
             'price' => fake()->numberBetween(100, 500) * 10,
-            'availability' => fake()->boolean(60),
+            'availability' => fake()->boolean(70),
         ];
 
     }

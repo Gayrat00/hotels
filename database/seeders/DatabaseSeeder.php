@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Booking;
-use App\Models\Hotel;
+use App\Models\Contact;
 use App\Models\Review;
 use App\Models\Room;
 use App\Models\User;
@@ -12,9 +12,6 @@ use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
         $this->call([
@@ -26,5 +23,6 @@ class DatabaseSeeder extends Seeder
         Room::factory()->count(10)->create();
         Review::factory()->count(10)->create();
         Booking::factory()->count(10)->create();
+        Contact::factory()->count(10)->create();
     }
 }

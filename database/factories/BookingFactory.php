@@ -4,15 +4,10 @@ namespace Database\Factories;
 
 use App\Models\User;
 use App\Models\Room;
-use App\Models\Booking;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\booking>
- */
 class BookingFactory extends Factory
 {
-    protected $model = Booking::class;
 
     public function definition(): array
     {

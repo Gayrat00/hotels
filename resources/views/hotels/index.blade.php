@@ -12,7 +12,7 @@
                 <div class="col">
                     <div class="card shadow-sm h-100">
                         <a href="{{ route('hotels.show', ['hotel' => $hotel->id]) }}">
-                            <img src="{{ asset('img/hotels/hotel-' . $hotel->id . '.jpg') }}" class="card-img-top img-fluid">
+                            <img src="{{ asset('img/hotels/hotel.jpg') }}" class="card-img-top img-fluid">
                         </a>
                         <div class="card-body">
                             <a href="{{ route('hotels.show', ['hotel' => $hotel->id]) }}" class="stretched-link text-decoration-none">

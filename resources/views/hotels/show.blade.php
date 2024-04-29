@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-sm-auto">
                 <div class="mb-3">
-                    <img src="{{ asset('img/hotels/hotel-' . $hotel->id . '.jpg') }}" class="img-fluid ">
+                    <img src="{{ asset('img/hotels/hotel.jpg') }}" class="img-fluid ">
                 </div>
             </div>
             <div class="col-sm">

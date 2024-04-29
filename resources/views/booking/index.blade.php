@@ -26,7 +26,7 @@
                     <tr>
                         <td>{{ $booking->room->room_type }}</td> <td>{{ $booking->start_date }}</td>
                         <td>{{ $booking->end_date }}</td>
-                        <td>{{ $booking->total_price }}</td>
+                        <td>${{ $booking->total_price }}</td>
                     </tr>
                 @empty
                     <tr>

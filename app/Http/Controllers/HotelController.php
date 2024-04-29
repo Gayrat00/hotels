@@ -19,9 +19,9 @@ class HotelController extends Controller
             return $query->where('location_id', $f_location);
         })->with('Location')->get();
 
+
         return view('hotels.index', compact('hotels'));
     }
-
 
     public function show(Hotel $hotel)
     {

@@ -16,6 +16,8 @@ class Contact extends Model
         'website',
     ];
 
+    public $timestamps = false;
+
     public function hotel()
     {
         return $this->belongsTo(Hotel::class);

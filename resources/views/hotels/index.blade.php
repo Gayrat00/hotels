@@ -7,7 +7,6 @@
 @section('content')
     <div class="container py-4">
         <h2 class="text-primary text-center mb-4 h1 ">Explore Our Hotels</h2>
-
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             @forelse($hotels as $hotel)
                 <div class="col">

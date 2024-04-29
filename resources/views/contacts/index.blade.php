@@ -7,7 +7,7 @@
 @section('content')
     <div class="container py-4">
         <h2 class="text-primary text-center mb-4 h1 ">Contacts</h2>
-            <table class="table table-striped">
+            <table class="table table-hover table-striped">
                 <thead>
                 <tr>
                     <th>ID</th>

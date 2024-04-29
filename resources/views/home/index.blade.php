@@ -13,7 +13,7 @@
                     <div class="col">
                         <div class="card shadow-sm h-100 border-0 rounded overflow-hidden">
                             <a href="{{ route('hotels.index', ['location' => $location->id]) }}" class="stretched-link text-decoration-none">
-                                <img src="{{ asset('img/locations/location-' . $location->id . '.jpg') }}" class="card-img-top img-fluid">                                <div class="card-body d-flex flex-column justify-content-between pb-3">
+                                <div class="card-body d-flex flex-column justify-content-between pb-3">
                                     <h5 class="card-title text-dark mb-2">{{ $location->country }}</h5>
                                     <div class="d-flex align-items-center">
                                         <span class="text-muted me-2"><i class="fas fa-hotel text-warning"></i></span>

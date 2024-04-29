@@ -15,7 +15,7 @@
                             <img src="{{ asset('img/hotels/hotel-' . $hotel->id . '.jpg') }}" class="card-img-top img-fluid">
                         </a>
                         <div class="card-body">
-                            <a href="{{ route('hotels.show', ['hotel' => $hotel->id]) }}">
+                            <a href="{{ route('hotels.show', ['hotel' => $hotel->id]) }}" class="stretched-link text-decoration-none">
                                 <h5 class="card-title">{{ $hotel->name }}</h5>
                             </a>
                             <span class="fw-bold">Rating:</span>
